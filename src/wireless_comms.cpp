@@ -22,7 +22,7 @@ void CatNow::initialize() {
 
 
 
-void CatNow::scan_for_slave(){
+void CatNow::scan_for_hub(){
       
     // Scan only on one channel for slaves
     int8_t scanResults = WiFi.scanNetworks(false, false, false, 300, CHANNEL);
@@ -96,7 +96,7 @@ void CatNow::OnDataReceived(const uint8_t* mac_addr, const uint8_t* data, int da
             Serial.print("Received data: ");
             Serial.println(dynamicValue);
 
-            layer_control.received_layer_switch(dynamicValue);
+            // layer_control.received_layer_switch(dynamicValue);
         }
     }
 }
@@ -111,7 +111,7 @@ void CatNow::send_switch_layer(uint8_t layer) {
     // Check if the peer exists
     if (peer_available == false) {
         Serial.println("No peer available");
-        scan_for_slave();
+        scan_for_hub();
     }
 
     uint8_t data[] = {'c', 'a', 't', layer};

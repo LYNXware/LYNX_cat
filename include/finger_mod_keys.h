@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#include "wireless_comms.h"
+
 
 class Finger_Module {
 

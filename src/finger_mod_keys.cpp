@@ -35,6 +35,10 @@ void Finger_Module::read_keystate() {
                 Serial.println(f_index);
 
                 f_state[fi][fo] = 1;
+
+                // catnow.scan_for_hub();
+                catnow.send_switch_layer(f_index);
+
                 
             }
             else if (digitalRead(inPin_f[fi]) == HIGH && f_state[fi][fo] == 1){
@@ -42,6 +46,9 @@ void Finger_Module::read_keystate() {
                 // event.deactuate(f_index); 
                 Serial.println("released");
                 Serial.println(f_index);
+
+
+
                 f_state[fi][fo] = 0;
  
             }

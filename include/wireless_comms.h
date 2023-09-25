@@ -5,8 +5,10 @@
 #include <WiFi.h>
 #include <esp_now.h>
 
-// #include "config.h"
+#include "config.h"
 // #include "layer_control.h"
+
+
 
 
 
@@ -17,7 +19,7 @@ class CatNow {
         // turn on wifi and CatNow
         void initialize();
 
-        void scan_for_slave();
+        void scan_for_hub();
 
         void send_switch_layer(uint8_t layer);
 
@@ -25,7 +27,7 @@ class CatNow {
 
         // wife credentials
         #define CHANNEL 1
-        String wifi_name = "LYNX-"; // + cat_variant;
+        String wifi_name = "LYNX_"; // + cat_variant;
 
         // slave mac address
         esp_now_peer_info_t peerInfo;
