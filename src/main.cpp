@@ -1,21 +1,19 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+
+#include "finger_mod_keys.h"
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+
+  fingerModule.initialize();
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  
+  fingerModule.read_keystate();
+  Serial.println("loopppppppppppppppppp ");
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+  }
 
-
-///hhhhh
