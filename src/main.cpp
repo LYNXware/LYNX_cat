@@ -1,5 +1,6 @@
 #include <Arduino.h>
 
+#include "config.h"
 
 #include "finger_mod_keys.h"
 
@@ -13,6 +14,10 @@
 
 
 void setup() {
+
+  config.set_variant();
+
+
 
   fingerModule.initialize();
 

@@ -10,7 +10,7 @@ void CatNow::initialize() {
     WiFi.mode(WIFI_AP_STA);
 
     // set up an Access Point 
-    WiFi.softAP(wifi_name + config.variant, "Slave_1_Password", CHANNEL, 0);
+    WiFi.softAP(wifi_cat + config.variant, "Slave_1_Password", CHANNEL, 0);
 
     // Initialize ESP-NOW
     esp_now_init();
@@ -50,7 +50,7 @@ void CatNow::scan_for_hub(){
             delay(10);
 
             // Check if the current device starts with `Slave`
-            if (SSID.indexOf(wifi_name) == 0) {
+            if (SSID.indexOf(wifi_hub) == 0) {
                 // SSID of interest
                 Serial.println("Found a Slave.");
                 // Get BSSID => Mac Address of the Slave

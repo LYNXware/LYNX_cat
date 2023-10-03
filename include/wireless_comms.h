@@ -27,7 +27,8 @@ class CatNow {
 
         // wife credentials
         #define CHANNEL 1
-        String wifi_name = "LYNX_"; // + cat_variant;
+        String wifi_cat = "LYNX_"; // + cat_variant;
+        String wifi_hub = "LYNXhub_";
 
         // slave mac address
         esp_now_peer_info_t peerInfo;
