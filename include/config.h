@@ -17,6 +17,8 @@ class Config {
 
     public:
 
+        char cat_side;
+
         //the variant variable is used to communicate with the LYNXapp
         String variant = "C0-000-000-000_v0.4.0";
 

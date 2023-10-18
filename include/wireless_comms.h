@@ -21,6 +21,14 @@ class CatNow {
 
         void scan_for_hub();
 
+        void send_event_index(uint8_t event_index);
+
+
+
+
+
+
+
         void send_switch_layer(uint8_t layer);
 
     private:

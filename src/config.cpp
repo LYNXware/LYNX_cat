@@ -12,8 +12,10 @@ void Config::set_variant() {
 
     #if side == 0
         variant.setCharAt(1,'L');
+        cat_side = 'L';
     #elif side == 1
         variant.setCharAt(1,'R');
+        cat_side = 'R';
     #endif
 
 
