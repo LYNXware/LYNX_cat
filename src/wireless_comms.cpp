@@ -83,7 +83,6 @@ void CatNow::send_event_index(uint8_t event_index) {
     }
 
 
-
     uint8_t data[] = {config.cat_side, event_index};
 
     // Send the data using ESP-NOW

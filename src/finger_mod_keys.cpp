@@ -17,49 +17,53 @@ void Finger_Module::initialize(){
 
 
 
-void Finger_Module::read_keystate() {
+void Finger_Module::read_keystate()
+{
+//looping through Outputpins and setting one at a time to LOW 
+for (fo=0; fo<outPin_f_count; fo++)
+{               
+    digitalWrite(outPin_f[fo],LOW);   
+    
+    // looping through Inputpins and checking for the LOW state of outputpins
+    for (fi=0; fi<inPin_f_count; fi++)
+    {          
 
-    //looping through Outputpins and setting one at a time to LOW 
-    for (fo=0; fo<outPin_f_count; fo++){               
-        digitalWrite(outPin_f[fo],LOW);   
-        
-        // looping through Inputpins and checking for the LOW state of outputpins
-        for (fi=0; fi<inPin_f_count; fi++){          
+        f_index = f_map[fi][fo];
 
-            f_index = f_map[fi][fo];
+        if (digitalRead(inPin_f[fi]) == LOW && f_state[fi][fo] == 0){
+            
+            // event.actuate(f_index); 
+            Serial.print("pressed-");
+            Serial.println(f_index);
 
-            if (digitalRead(inPin_f[fi]) == LOW && f_state[fi][fo] == 0){
-                
-                // event.actuate(f_index); 
-                Serial.println("pressed");
-                Serial.println(f_index);
+            f_state[fi][fo] = 1;
 
-                f_state[fi][fo] = 1;
+            catnow.send_event_index(f_index);
+            delay(1);
+            
+        }
+        else if (digitalRead(inPin_f[fi]) == HIGH && f_state[fi][fo] == 1){
+            
+            // event.deactuate(f_index); 
+            Serial.print("released-");
+            Serial.println(f_index);
 
-                // catnow.scan_for_hub();
-                catnow.send_switch_layer(f_index);
+            catnow.send_event_index(f_index);
 
-                
-            }
-            else if (digitalRead(inPin_f[fi]) == HIGH && f_state[fi][fo] == 1){
-                
-                // event.deactuate(f_index); 
-                Serial.println("released");
-                Serial.println(f_index);
+            f_state[fi][fo] = 0;
 
-
-
-                f_state[fi][fo] = 0;
- 
-            }
-            else {     
-                // do nothing   
-            }
-        }      
-         //setting the Outputpin back to HIGH state
-        digitalWrite(outPin_f[fo],HIGH);             
-    }
+        }
+        else {     
+            // do nothing   
+        }
+    }      
+        //setting the Outputpin back to HIGH state
+    digitalWrite(outPin_f[fo],HIGH);             
 }
+}
+
+
+
 
 // creating an instance of the Finger_Module class
 Finger_Module fingerModule;
