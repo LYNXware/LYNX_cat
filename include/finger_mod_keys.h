@@ -51,6 +51,6 @@ class Finger_Module {
 };
 
 // creating an instance of the Finger_Module class
-extern Finger_Module fingerModule;
+extern Finger_Module finger_mod;
 
 #endif

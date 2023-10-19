@@ -66,4 +66,4 @@ for (fo=0; fo<outPin_f_count; fo++)
 
 
 // creating an instance of the Finger_Module class
-Finger_Module fingerModule;
+Finger_Module finger_mod;

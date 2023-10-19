@@ -73,18 +73,12 @@ void CatNow::scan_for_hub(){
 
 
 void CatNow::send_event_index(uint8_t event_index) {
-
-    // Serial.println("send_switch_layer");
-
     // Check if the peer exists
     if (peer_available == false) {
         Serial.println("No peer available");
         scan_for_hub();
     }
-
-
     uint8_t data[] = {config.cat_side, event_index};
-
     // Send the data using ESP-NOW
     esp_now_send(peerInfo.peer_addr, data, sizeof(data));
 }
@@ -93,7 +87,16 @@ void CatNow::send_event_index(uint8_t event_index) {
 
 
 
-
+void CatNow::send_mouse_movements(uint8_t x_value, uint8_t y_value){
+    // Check if the peer exists
+    if (peer_available == false) {
+        Serial.println("No peer available");
+        scan_for_hub();
+    }
+    uint8_t data[] = {'M', x_value, y_value};
+    // Send the data using ESP-NOW
+    esp_now_send(peerInfo.peer_addr, data, sizeof(data));
+}
 
 
 
