@@ -10,7 +10,7 @@
 
 void Config::set_variant() {      
 
-    #if side == 0
+    #if DEVICE_SIDE == 0
         variant.setCharAt(1,'L');
         cat_side = 'L';
     #elif side == 1
@@ -19,17 +19,17 @@ void Config::set_variant() {
     #endif
 
 
-    #if thumb_module == 0
+    #if THUMB_MODULE == 0
         variant.setCharAt(3,'B');
-    #elif thumb_module == 1
+    #elif THUMB_MODULE == 1
         variant.setCharAt(3,'J');
         variant.setCharAt(4,'B');
-    #elif thumb_module == 2
+    #elif THUMB_MODULE == 2
         variant.setCharAt(3,'T');
     #endif
 
 
-    #if finger_module == 0
+    #if FINGER_MODULE == 0
         variant.setCharAt(7,'B');     
     #elif finger_module == 1
         variant.setCharAt(7,'B');
@@ -37,9 +37,9 @@ void Config::set_variant() {
     #endif
 
     
-    #if additional_modules == 0
+    #if ADDITIONAL_MODULES == 0
            variant.setCharAt(11,'0');
-    #elif additional_modules == 1
+    #elif ADDITIONAL_MODULES == 1
         variant.setCharAt(11,'M');
     #endif    
         

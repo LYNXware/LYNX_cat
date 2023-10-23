@@ -10,7 +10,8 @@ void CatNow::initialize() {
     WiFi.mode(WIFI_AP_STA);
 
     // set up an Access Point 
-    WiFi.softAP(wifi_cat + config.variant, "Slave_1_Password", CHANNEL, 0);
+    // WiFi.softAP(wifi_cat + config.variant, "Slave_1_Password", CHANNEL, 0);
+    WiFi.softAP(wifi_cat + config.variant, "cat", CHANNEL, 0);
 
     // Initialize ESP-NOW
     esp_now_init();
@@ -131,18 +132,18 @@ void CatNow::OnDataReceived(const uint8_t* mac_addr, const uint8_t* data, int da
 
 
 
-void CatNow::send_switch_layer(uint8_t layer) {
+// void CatNow::send_switch_layer(uint8_t layer) {
 
-    Serial.println("send_switch_layer");
+//     Serial.println("send_switch_layer");
 
-    // Check if the peer exists
-    if (peer_available == false) {
-        Serial.println("No peer available");
-        scan_for_hub();
-    }
+//     // Check if the peer exists
+//     if (peer_available == false) {
+//         Serial.println("No peer available");
+//         scan_for_hub();
+//     }
 
-    uint8_t data[] = {'c', 'a', 't', layer};
+//     uint8_t data[] = {'c', 'a', 't', layer};
 
-    // Send the data using ESP-NOW
-    esp_now_send(peerInfo.peer_addr, data, sizeof(data));
-}
+//     // Send the data using ESP-NOW
+//     esp_now_send(peerInfo.peer_addr, data, sizeof(data));
+// }

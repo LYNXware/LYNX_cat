@@ -6,10 +6,6 @@
 #include <esp_now.h>
 
 #include "config.h"
-// #include "layer_control.h"
-
-
-
 
 
 class CatNow {
@@ -23,21 +19,17 @@ class CatNow {
 
         void send_event_index(uint8_t event_index);
 
-
         void send_mouse_movements(uint8_t x_value, uint8_t y_value);
 
 
 
 
 
-
-
-
-        void send_switch_layer(uint8_t layer);
+        // void send_switch_layer(uint8_t layer);
 
     private:
 
-        // wife credentials
+        // wifi credentials
         #define CHANNEL 1
         String wifi_cat = "LYNX_"; // + cat_variant;
         String wifi_hub = "LYNXhub_";

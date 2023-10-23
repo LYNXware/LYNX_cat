@@ -1,3 +1,10 @@
+/*
+Version: 0.3.0
+Date: 01.09.2023
+Developer: Stanislaw Kirpicnikow (Ape Devil)
+Remark: 
+*/
+
 #include <Arduino.h>
 
 #include "config.h"
@@ -32,15 +39,15 @@ void setup() {
   catnow.initialize();
 
   // included according to config.h
-#if finger_module == 1  
+#if FINGER_MODULE == 1  
   scroll_wheel.initialize();
 #endif
 
-#if thumb_module == 1  
+#if THUMB_MODULE == 1  
   joystick.initialize();
 #endif
   
-#if additional_modules == 1  
+#if ADDITIONAL_MODULES == 1  
   adns5050.initialize();
 #endif
 
@@ -53,17 +60,17 @@ void loop() {
   thumb_mod.read_keystate();
 
   // included according to config.h 
-#if finger_module == 1
+#if FINGER_MODULE == 1
   // check if the scroll wheel is triggered
   scroll_wheel.read_encoder();
 #endif  
 
-#if thumb_module == 1  
+#if THUMB_MODULE == 1  
   // check if the joystick is triggered
   joystick.read_joystick();
 #endif
   
-#if additional_modules == 1  
+#if ADDITIONAL_MODULES == 1  
   // checking if the mouse sensor is triggered
   adns5050.read_mouse_sensor();
 #endif

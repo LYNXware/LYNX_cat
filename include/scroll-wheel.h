@@ -3,7 +3,6 @@
 
 #include <Arduino.h>
 
-// #include "events.h"
 #include "config.h"
 #include "wireless_comms.h"
 
@@ -22,12 +21,12 @@ class Scroll_Wheel {
         #define encoder_b 48    //a1
         #define encoder_GND 0   //a1
 
-        #if side == 0
+        #if DEVICE_SIDE == 0
             //left side          
             #define forward_scroll 43
             #define backward_scroll 41
 
-        #elif side == 1  
+        #elif DEVICE_SIDE == 1  
             //right side
             #define forward_scroll 41
             #define backward_scroll 43
