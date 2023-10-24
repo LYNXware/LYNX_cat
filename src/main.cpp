@@ -11,12 +11,15 @@ Remark:
 
 #include "neopixel-LED.h"
 
+#include "wireless_comms.h"
+
 #include "finger_mod_keys.h"
 #include "thumb_mod_keys.h"
 
-#include "wireless_comms.h"
 
 
+// module to control the joystick
+#include "joystick.h"
 
 // module to control the scroll wheel
 #include "scroll-wheel.h"
@@ -30,13 +33,11 @@ Remark:
 void setup() {
 
   config.set_variant();
-
   neopixelled.initialize();
+  catnow.initialize();
 
   finger_mod.initialize();
   thumb_mod.initialize();
-
-  catnow.initialize();
 
   // included according to config.h
 #if FINGER_MODULE == 1  

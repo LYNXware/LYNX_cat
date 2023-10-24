@@ -6,10 +6,10 @@
 
 // CONFIG - here you can define your cat variant
 
-#define DEVICE_SIDE         1   // 0-(left) || 1-(right)
-#define THUMB_MODULE        0   // 0-(only keys) || 1-(keys+joystick) || 2-(trackball) 
+#define DEVICE_SIDE         0   // 0-(left) || 1-(right)
+#define THUMB_MODULE        1   // 0-(only keys) || 1-(keys+joystick) || 2-(trackball) 
 #define FINGER_MODULE       1   // 0-(only keys) || 1-(keys+wheel) 
-#define ADDITIONAL_MODULES  1   // 0-(none) || 1-(mouse moudule)
+#define ADDITIONAL_MODULES  0   // 0-(none) || 1-(mouse moudule)
 
 
 

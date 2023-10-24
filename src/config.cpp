@@ -31,7 +31,7 @@ void Config::set_variant() {
 
     #if FINGER_MODULE == 0
         variant.setCharAt(7,'B');     
-    #elif finger_module == 1
+    #elif FINGER_MODULE == 1
         variant.setCharAt(7,'B');
         variant.setCharAt(8,'W');
     #endif

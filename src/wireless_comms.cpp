@@ -6,12 +6,15 @@ CatNow catnow;
 
 void CatNow::initialize() {
 
+    // Disconnect from any previously connected WiFi network
+    // WiFi.disconnect(true);
+
     // Initialize Wi-Fi: simultanious (Station Mode) and WIFI_AP (Access Point Mode)
     WiFi.mode(WIFI_AP_STA);
 
     // set up an Access Point 
-    // WiFi.softAP(wifi_cat + config.variant, "Slave_1_Password", CHANNEL, 0);
-    WiFi.softAP(wifi_cat + config.variant, "cat", CHANNEL, 0);
+    WiFi.softAP(wifi_cat + config.variant, "Slave_1_Password", CHANNEL, 0);
+    // WiFi.softAP(wifi_cat + config.variant, "cat", CHANNEL, 0);
 
     // Initialize ESP-NOW
     esp_now_init();

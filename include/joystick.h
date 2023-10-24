@@ -34,7 +34,7 @@ private:
     
     // declaring the joystick events
     byte joystick_event_map[2][4] = {{EVENT_JF1,  EVENT_JF2,  EVENT_JB1,  EVENT_JB2},
-                                        {EVENT_JR1,  EVENT_JR2,  EVENT_JL1,  EVENT_JL2}};
+                                     {EVENT_JR1,  EVENT_JR2,  EVENT_JL1,  EVENT_JL2}};
 
                                     //  JF1, JF2, JB1,  JB2,  JL1,  JL2, JR1, JR2
     // byte joystick_event_map[2][4] = {{33,  34,  35,  36},  {39,  40,  37,  38}};
