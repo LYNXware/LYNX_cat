@@ -18,19 +18,24 @@ void Joystick::initialize(){
 
 void Joystick::read_joystick(){
 
-    // read the analog joystick values
-    joystickValues[0] = analogRead(pin_jy); 
-    joystickValues[1] = analogRead(pin_jx);
+  // read the analog joystick values
+  joystickValues[0] = analogRead(pin_jy); 
+  joystickValues[1] = analogRead(pin_jx);
 
-    two_step();
+  // Serial.print(joystickValues[0]);
+  // Serial.print(" ");
+  // Serial.println(joystickValues[1]);
 
-    // check how many steps the joystick has
-    // if (){
-    //     one_step();
-    // }
-    // else{
-    //     two_step();
-    // }
+
+  two_step();
+
+  // check how many steps the joystick has
+  // if (){
+  //     one_step();
+  // }
+  // else{
+  //     two_step();
+  // }
 }
 
 
@@ -73,45 +78,107 @@ void Joystick::one_step() {
   }
 }
 
-
-
 void Joystick::two_step() {
 
   for (byte a = 0; a < 2; a++) {
-
+        // 1600                                                 
     if (threshold_l1 > joystickValues[a] && joystickValues[a] > threshold_l2) {
       // Serial.println(joystickValues[a]);
+      //f1
       actuate_event(a,0);
+      deactuate_event(a,1);
+      delay(debounce_delay);
+    }
+    else if (joystickValues[a] < threshold_l2) {
+      //f2
+      deactuate_event(a,0);
+      actuate_event(a,1);
+      delay(debounce_delay);
+    }
+    else if (threshold_h1 < joystickValues[a] && joystickValues[a] < threshold_h2) {
+      //b1
+      actuate_event(a,2);
+      deactuate_event(a,3);
+      delay(debounce_delay);
+    }
+    else if (joystickValues[a] > threshold_h2) {
+      //b2
+      deactuate_event(a,2);
+      actuate_event(a,3);
+      delay(debounce_delay);
     }
     else{
       deactuate_event(a,0);
-    }
-
-    if (joystickValues[a] < threshold_l2) {
-      // Serial.println(joystickValues[a]);
-      actuate_event(a,1);
-    }
-    else{
       deactuate_event(a,1);
-    }
-
-    if (threshold_h1 < joystickValues[a] && joystickValues[a] < threshold_h2) {
-      // Serial.println(joystickValues[a]);
-      actuate_event(a,2);
-    }
-    else{
       deactuate_event(a,2);
-    }
-
-    if (joystickValues[a] > threshold_h2) {
-      // Serial.println(joystickValues[a]);
-      actuate_event(a,3);
-    }
-    else{
       deactuate_event(a,3);
     }
+
+    // if (joystickValues[a] < threshold_l2) {
+    //   // Serial.println(joystickValues[a]);
+    //   actuate_event(a,1);
+    // }
+    // else{
+    //   deactuate_event(a,1);
+    // }
+
+    // if (threshold_h1 < joystickValues[a] && joystickValues[a] < threshold_h2) {
+    //   // Serial.println(joystickValues[a]);
+    //   actuate_event(a,2);
+    // }
+    // else{
+    //   deactuate_event(a,2);
+    // }
+
+    // if (joystickValues[a] > threshold_h2) {
+    //   // Serial.println(joystickValues[a]);
+    //   actuate_event(a,3);
+    // }
+    // else{
+    //   deactuate_event(a,3);
+    // }
   }
 }
+
+
+// void Joystick::two_step() {
+
+//   for (byte a = 0; a < 2; a++) {
+
+//     if (threshold_l1 > joystickValues[a] && joystickValues[a] > threshold_l2) {
+//       // Serial.println(joystickValues[a]);
+
+//       actuate_event(a,0);
+//     }
+//     else{
+//       deactuate_event(a,0);
+//     }
+
+//     if (joystickValues[a] < threshold_l2) {
+//       // Serial.println(joystickValues[a]);
+//       actuate_event(a,1);
+//     }
+//     else{
+//       deactuate_event(a,1);
+//     }
+
+//     if (threshold_h1 < joystickValues[a] && joystickValues[a] < threshold_h2) {
+//       // Serial.println(joystickValues[a]);
+//       actuate_event(a,2);
+//     }
+//     else{
+//       deactuate_event(a,2);
+//     }
+
+//     if (joystickValues[a] > threshold_h2) {
+//       // Serial.println(joystickValues[a]);
+//       actuate_event(a,3);
+//     }
+//     else{
+//       deactuate_event(a,3);
+//     }
+//   }
+// }
 
 
 

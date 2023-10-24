@@ -21,6 +21,8 @@ class CatNow {
 
         void send_mouse_movements(uint8_t x_value, uint8_t y_value);
 
+        void send_battery_level(uint8_t battery_charge);
+
 
 
 

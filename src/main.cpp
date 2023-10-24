@@ -9,6 +9,8 @@ Remark:
 
 #include "config.h"
 
+#include "battery_manager.h"
+
 #include "neopixel-LED.h"
 
 #include "wireless_comms.h"
@@ -31,6 +33,9 @@ Remark:
 
 
 void setup() {
+
+  battery_manager.initialize();
+
 
   config.set_variant();
   neopixelled.initialize();
@@ -55,6 +60,9 @@ void setup() {
 }
 
 void loop() {
+
+
+  battery_manager.read_battery();
   
   // checking if key of thumb and fingers are triggered
   finger_mod.read_keystate();

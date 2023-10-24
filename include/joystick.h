@@ -31,6 +31,8 @@ private:
     const int threshold_l2 = 50;
     const int threshold_h1 = 2300;
     const int threshold_h2 = 4045;
+
+    const byte debounce_delay = 1;
     
     // declaring the joystick events
     byte joystick_event_map[2][4] = {{EVENT_JF1,  EVENT_JF2,  EVENT_JB1,  EVENT_JB2},

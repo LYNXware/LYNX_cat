@@ -104,13 +104,24 @@ void CatNow::send_mouse_movements(uint8_t x_value, uint8_t y_value){
 
 
 
+void CatNow::send_battery_level(uint8_t battery_charge){
+    // Check if the peer exists
+    if (peer_available == false) {
+        Serial.println("No peer available");
+        scan_for_hub();
+    }
+    uint8_t data[] = {'B', battery_charge};
+    // Send the data using ESP-NOW
+    esp_now_send(peerInfo.peer_addr, data, sizeof(data));
+}
+
 
 
 
 
 // Callback function for sending data
 void CatNow::OnDataSent(const uint8_t* mac_addr, esp_now_send_status_t status) {
-  Serial.println("OnDataSent");
+//   Serial.println("OnDataSent");
   // Handle send status
 }
 
