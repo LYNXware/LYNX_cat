@@ -3,7 +3,13 @@
 
 #include <Arduino.h>
 
+
+#include "esp_adc_cal.h"
+
+
 #include "wireless_comms.h"
+
+
 
 #define BATTERY_PIN 14
 
@@ -22,9 +28,11 @@ public:
     int number_readings = 0;
     
     // byte max_readings = 1000;
-    u16_t max_readings = 1000;
+    u16_t max_readings = 10000;
+    
 
     uint8_t battery_level_converted;
+ 
 
 
 };

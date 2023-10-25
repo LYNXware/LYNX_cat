@@ -22,6 +22,11 @@ class NeopixelLED {
 
         // function to change led colors to show selected layer
         void layer_witch(byte active_layer);
+
+        // batter level indicator
+        void charge_battery();
+        void battery_full();
+        void battery_low();
 };
 
 // creating an instance of the NeopixelLED class
