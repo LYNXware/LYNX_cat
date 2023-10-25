@@ -3,9 +3,7 @@
 
 #include <Arduino.h>
 
-
 #include "esp_adc_cal.h"
-
 
 #include "wireless_comms.h"
 #include "neopixel-LED.h"
@@ -24,6 +22,8 @@ public:
 
     void read_battery();
 
+private:
+
     int battery_level;
     int readings_sum = 0;
     int number_readings = 0;
@@ -33,10 +33,7 @@ public:
 
     uint8_t battery_level_converted;
 
-private:
-
     void check_battery_stats(uint8_t battery_level_converted);
-
 };
 
 // create an instance
