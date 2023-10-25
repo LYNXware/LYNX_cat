@@ -11,7 +11,7 @@ void BatteryManager::initialize(){
 
 
     // initialize the battery level
-    battery_level = 0;
+    // battery_level = 0;
 
 
 
@@ -20,27 +20,23 @@ void BatteryManager::initialize(){
 }
 
 
-void BatteryManager::read_battery(){
-
-
+void BatteryManager::read_battery()
+{
     battery_level = adc1_get_raw(ADC1_CHANNEL_8);
-
-
 
     // read the battery level
     // battery_level = analogRead(BATTERY_PIN);
 
-
     readings_sum += battery_level;
     number_readings++;
-
 
     if (number_readings == max_readings){
 
         battery_level = readings_sum / number_readings;
         battery_level_converted = map(battery_level, 0, 4095, 0, 255);
 
-        catnow.send_battery_level(battery_level);
+        catnow.send_battery_level(battery_level_converted);
+        check_battery_stats(battery_level_converted);
 
         readings_sum = 0;
         number_readings = 0;
@@ -52,6 +48,20 @@ void BatteryManager::read_battery(){
         Serial.println(battery_level_converted);
     }
 }
+
+
+void BatteryManager::check_battery_stats(uint8_t battery_level_converted){
+
+    if (battery_level_converted < 1){
+
+        catnow.turn_off();
+        neopixelled.battery_empty();
+
+    }
+}
+
+
+
 
 // void BatteryManager::read_battery(){
 

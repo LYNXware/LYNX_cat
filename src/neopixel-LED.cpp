@@ -46,13 +46,19 @@ void NeopixelLED::layer_witch(byte active_layer){
             break;
             
         case 3:
-            strip_layer_switch.setPixelColor(1, 50, 0, 0); //yealow
+            strip_layer_switch.setPixelColor(1, 50, 0, 0); //red
             strip_layer_switch.setPixelColor(0, 0, 0, 0);
             strip_layer_switch.show();
             break;            
     }
 }
 
+void NeopixelLED::battery_empty(){
+
+    strip_layer_switch.setPixelColor(0, 10, 50, 0); //green
+    strip_layer_switch.setPixelColor(1, 10, 0, 50);
+    strip_layer_switch.show();
+}
 
 
 

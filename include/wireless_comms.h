@@ -15,6 +15,8 @@ class CatNow {
         // turn on wifi and CatNow
         void initialize();
 
+        void turn_off();
+        
         void scan_for_hub();
 
         void send_event_index(uint8_t event_index);

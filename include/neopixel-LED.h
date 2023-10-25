@@ -26,7 +26,7 @@ class NeopixelLED {
         // batter level indicator
         void charge_battery();
         void battery_full();
-        void battery_low();
+        void battery_empty();
 };
 
 // creating an instance of the NeopixelLED class

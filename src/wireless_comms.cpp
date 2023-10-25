@@ -25,6 +25,17 @@ void CatNow::initialize() {
 }
 
 
+void CatNow::turn_off() {
+    // turn off esp-now
+    esp_now_deinit();
+    // Disconnect from any previously connected WiFi network
+    WiFi.disconnect(true);
+    // turn off wifi
+    WiFi.mode(WIFI_OFF);
+}
+
+
+
 
 void CatNow::scan_for_hub(){
       

@@ -8,6 +8,7 @@
 
 
 #include "wireless_comms.h"
+#include "neopixel-LED.h"
 
 
 
@@ -29,11 +30,12 @@ public:
     
     // byte max_readings = 1000;
     u16_t max_readings = 10000;
-    
 
     uint8_t battery_level_converted;
- 
 
+private:
+
+    void check_battery_stats(uint8_t battery_level_converted);
 
 };
 
