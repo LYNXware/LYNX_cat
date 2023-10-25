@@ -7,8 +7,7 @@
 
 #define BATTERY_PIN 14
 
-#define BATTERY_A 13
-// #define BATTERY_B 19
+
 
 class BatteryManager {
 
@@ -19,11 +18,13 @@ public:
     void read_battery();
 
     int battery_level;
+    int readings_sum = 0;
+    int number_readings = 0;
+    
+    // byte max_readings = 1000;
+    u16_t max_readings = 1000;
 
     uint8_t battery_level_converted;
-
-    int a;
-    int b;
 
 
 };
