@@ -28,7 +28,7 @@ private:
 
     // declaring the joystick thresholds
 
-    const int threshold = 4
+    const int threshold = 4;
 
 
 
