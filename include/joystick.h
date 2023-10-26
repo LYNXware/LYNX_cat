@@ -27,6 +27,11 @@ private:
     int joystickValues[2];
 
     // declaring the joystick thresholds
+
+    const int threshold = 4
+
+
+
     const int threshold_l1 = 1600;
     const int threshold_l2 = 50;
     const int threshold_h1 = 2300;
