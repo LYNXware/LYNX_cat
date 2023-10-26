@@ -28,14 +28,24 @@ private:
 
     // declaring the joystick thresholds
 
-    const int threshold = 4;
+    const int threshold = 4095;
+    const int threshold_midpoint = threshold/2;
+    const int threshold_deadzone = 400;
+    const int threshold_debounce = 100;
+ 
+    const int threshold_low_1 = threshold_midpoint - threshold_deadzone;
+    const int threshold_high_1 = threshold_midpoint + threshold_deadzone;
 
+    const int threshold_low_3 = 0;
+    const int threshold_high_3 = threshold;
 
+    const int threshold_low_2 = threshold_low_3 + threshold_debounce;
+    const int threshold_high_2 = threshold_high_3 - threshold_debounce;
 
-    const int threshold_l1 = 1600;
-    const int threshold_l2 = 50;
-    const int threshold_h1 = 2300;
-    const int threshold_h2 = 4045;
+    // const int threshold_l1 = 1600;
+    // const int threshold_l2 = 50;
+    // const int threshold_h1 = 2300;
+    // const int threshold_h2 = 4045;
 
     const byte debounce_delay = 1;
     

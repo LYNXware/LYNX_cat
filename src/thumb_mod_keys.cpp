@@ -26,13 +26,13 @@ void Thumb_Module::read_keystate() {
 
             if (digitalRead(inPin[ti]) == LOW && t_state[ti][to] == 0)
             {
-                catnow.send_event_index(t_index);
+                catnow.send_event_index(t_index, 1);
                 delay(1);  
                 t_state[ti][to] = 1;
             }
             else if (digitalRead(inPin[ti]) == HIGH && t_state[ti][to] == 1)
             {
-                catnow.send_event_index(t_index);
+                catnow.send_event_index(t_index, 0);
                 t_state[ti][to] = 0;
             }
             else {

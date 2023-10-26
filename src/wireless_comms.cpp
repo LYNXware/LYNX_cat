@@ -87,13 +87,13 @@ void CatNow::scan_for_hub(){
 
 
 
-void CatNow::send_event_index(uint8_t event_index) {
+void CatNow::send_event_index(uint8_t event_index, uint8_t event_state) {
     // Check if the peer exists
     if (peer_available == false) {
         Serial.println("No peer available");
         scan_for_hub();
     }
-    uint8_t data[] = {config.cat_side, event_index};
+    uint8_t data[] = {config.cat_side, event_index, event_state};
     // Send the data using ESP-NOW
     esp_now_send(peerInfo.peer_addr, data, sizeof(data));
 }

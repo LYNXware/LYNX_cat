@@ -22,14 +22,14 @@ void Scroll_Wheel::read_encoder(){
         if (state == HIGH) {
             if (digitalRead(encoder_b) != state){
                 // Clockwise
-                catnow.send_event_index(forward_scroll);
-                catnow.send_event_index(forward_scroll);   
+                catnow.send_event_index(forward_scroll, 1);
+                catnow.send_event_index(forward_scroll, 0);   
                 // delay(1);
             } 
             else {
                 // Counterclockwise
-                catnow.send_event_index(backward_scroll);
-                catnow.send_event_index(backward_scroll);
+                catnow.send_event_index(backward_scroll, 1);
+                catnow.send_event_index(backward_scroll, 0);
                 // delay(1);    
             }
         }

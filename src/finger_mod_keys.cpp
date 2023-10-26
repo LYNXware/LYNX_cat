@@ -38,7 +38,7 @@ for (fo=0; fo<outPin_f_count; fo++)
 
             f_state[fi][fo] = 1;
 
-            catnow.send_event_index(f_index);
+            catnow.send_event_index(f_index, true);
             delay(1);
             
         }
@@ -48,7 +48,7 @@ for (fo=0; fo<outPin_f_count; fo++)
             Serial.print("released-");
             Serial.println(f_index);
 
-            catnow.send_event_index(f_index);
+            catnow.send_event_index(f_index, false);
 
             f_state[fi][fo] = 0;
 

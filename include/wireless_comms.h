@@ -19,7 +19,7 @@ class CatNow {
         
         void scan_for_hub();
 
-        void send_event_index(uint8_t event_index);
+        void send_event_index(uint8_t event_index, uint8_t event_state);
 
         void send_mouse_movements(uint8_t x_value, uint8_t y_value);
 
