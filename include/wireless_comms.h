@@ -6,6 +6,7 @@
 #include <esp_now.h>
 
 #include "config.h"
+#include "neopixel-LED.h"
 
 
 class CatNow {

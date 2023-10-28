@@ -62,7 +62,7 @@ void setup() {
 void loop() {
 
 
-  battery_manager.read_battery();
+  // battery_manager.read_battery();
   
   // checking if key of thumb and fingers are triggered
   finger_mod.read_keystate();

@@ -96,6 +96,10 @@ void CatNow::send_event_index(uint8_t event_index, uint8_t event_state) {
     uint8_t data[] = {config.cat_side, event_index, event_state};
     // Send the data using ESP-NOW
     esp_now_send(peerInfo.peer_addr, data, sizeof(data));
+    Serial.print("send_event_index ");
+    Serial.print(event_index);
+    Serial.print(" - ");
+    Serial.println(event_state);
 }
 
 
@@ -142,6 +146,13 @@ void CatNow::OnDataReceived(const uint8_t* mac_addr, const uint8_t* data, int da
 
     Serial.println("OnDataReceived");
 
+    if (data[0] == 'H'){
+        if (data[1] == 'L'){
+            neopixelled.layer_witch(data[2]);
+        }
+
+    }
+
     if (data_len == 4) {
         if (data[0] == 'c' && data[1] == 'a' && data[2] == 't') {
             uint8_t dynamicValue = data[3];
@@ -152,6 +163,17 @@ void CatNow::OnDataReceived(const uint8_t* mac_addr, const uint8_t* data, int da
             // layer_control.received_layer_switch(dynamicValue);
         }
     }
+
+    // if (data_len == 4) {
+    //     if (data[0] == 'c' && data[1] == 'a' && data[2] == 't') {
+    //         uint8_t dynamicValue = data[3];
+
+    //         Serial.print("Received data: ");
+    //         Serial.println(dynamicValue);
+
+    //         // layer_control.received_layer_switch(dynamicValue);
+    //     }
+    // }
 }
 
 
