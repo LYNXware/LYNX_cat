@@ -29,6 +29,8 @@ Remark:
 // module to control the mouse sensor
 #include "mouse-sensor.h"
 
+#include "MPU6050_mod.h"
+
 
 
 
@@ -57,9 +59,13 @@ void setup() {
   adns5050.initialize();
 #endif
 
+  mpu6050.initialize();
+
 }
 
 void loop() {
+
+  mpu6050.readSensor();
 
 
   // battery_manager.read_battery();
