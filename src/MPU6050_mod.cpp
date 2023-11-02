@@ -18,99 +18,99 @@ void MPU6050::initialize(){
 
 }
 
-void MPU6050::readSensor(){
-    
-    mpu.getEvent(&accel, &gyro, &temp);
-    // read_accel();
-    read_gyro();
-    delay(10);
-}
-
-void MPU6050::read_accel(){
-    /* Get new sensor events with the readings */
-    // sensors_event_t accel;
-    // mpu.getEvent(&accel, NULL, NULL);
-
-    accel_x = accel.acceleration.x;
-    accel_y = accel.acceleration.y;
-    accel_z = accel.acceleration.z;
-
-    if (accel_x != accel_x_prev){
-        Serial.print("Accel X: ");
-        Serial.println(accel_x);
-    }
-    if (accel_y != accel_y_prev){
-        Serial.print("Accel Y: ");
-        Serial.println(accel_y);
-    }
-    if (accel_z != accel_z_prev){
-        Serial.print("Accel Z: ");
-        Serial.println(accel_z);
-    }
-
-    accel_x_prev = accel_x;
-    accel_y_prev = accel_y;
-    accel_z_prev = accel_z;
-}
-
-void MPU6050::read_gyro(){
-    // /* Get new sensor events with the readings */
-    // sensors_event_t gyro;
-    // mpu.getEvent(NULL, &gyro, NULL);
-
-    gyro_x = gyro.gyro.x;
-    gyro_y = gyro.gyro.y;   
-    gyro_z = gyro.gyro.z;
-
-    if (gyro_x != gyro_x_prev){
-        Serial.print("Gyro X: ");
-        Serial.println(gyro_x);
-    }
-    if (gyro_y != gyro_y_prev){
-        Serial.print("Gyro Y: ");
-        Serial.println(gyro_y);
-    }
-    if (gyro_z != gyro_z_prev){
-        Serial.print("Gyro Z: ");
-        Serial.println(gyro_z);
-    }
-
-    gyro_x_prev = gyro_x;
-    gyro_y_prev = gyro_y;
-    gyro_z_prev = gyro_z;
-}
-
-
-
-
 // void MPU6050::readSensor(){
-//     /* Get new sensor events with the readings */
-//     sensors_event_t accel, gyro, temp;
+    
 //     mpu.getEvent(&accel, &gyro, &temp);
+//     read_accel();
+//     // read_gyro();
+//     delay(10);
+// }
+
+// void MPU6050::read_accel(){
+//     /* Get new sensor events with the readings */
+//     // sensors_event_t accel;
+//     // mpu.getEvent(&accel, NULL, NULL);
 
 //     accel_x = accel.acceleration.x;
 //     accel_y = accel.acceleration.y;
 //     accel_z = accel.acceleration.z;
 
+//     if (accel_x != accel_x_prev){
+//         Serial.print("Accel X: ");
+//         Serial.println(accel_x);
+//     }
+//     // if (accel_y != accel_y_prev){
+//     //     Serial.print("Accel Y: ");
+//     //     Serial.println(accel_y);
+//     // }
+//     // if (accel_z != accel_z_prev){
+//     //     Serial.print("Accel Z: ");
+//     //     Serial.println(accel_z);
+//     // }
+
+//     accel_x_prev = accel_x;
+//     accel_y_prev = accel_y;
+//     accel_z_prev = accel_z;
+// }
+
+// void MPU6050::read_gyro(){
+//     // /* Get new sensor events with the readings */
+//     // sensors_event_t gyro;
+//     // mpu.getEvent(NULL, &gyro, NULL);
+
 //     gyro_x = gyro.gyro.x;
 //     gyro_y = gyro.gyro.y;   
 //     gyro_z = gyro.gyro.z;
-    
-//     Serial.print("Accel X: ");
-//     Serial.print(accel_x);
-//     Serial.print("  Y: ");
-//     Serial.print(accel_y);
-//     Serial.print("  Z: ");
-//     Serial.print(accel_z);
-//     Serial.print("  Gyro X: ");
-//     Serial.print(gyro_x);
-//     Serial.print("  Y: ");
-//     Serial.print(gyro_y);
-//     Serial.print("  Z: ");
-//     Serial.println(gyro_z);
-//     delay(100);
 
+//     if (gyro_x != gyro_x_prev){
+//         Serial.print("Gyro X: ");
+//         Serial.println(gyro_x);
+//     }
+//     // if (gyro_y != gyro_y_prev){
+//     //     Serial.print("Gyro Y: ");
+//     //     Serial.println(gyro_y);
+//     // }
+//     // if (gyro_z != gyro_z_prev){
+//     //     Serial.print("Gyro Z: ");
+//     //     Serial.println(gyro_z);
+//     // }
+
+//     gyro_x_prev = gyro_x;
+//     gyro_y_prev = gyro_y;
+//     gyro_z_prev = gyro_z;
 // }
+
+
+
+
+void MPU6050::readSensor(){
+    /* Get new sensor events with the readings */
+    // sensors_event_t accel, gyro, temp;
+    mpu.getEvent(&accel, &gyro, &temp);
+
+    accel_x = accel.acceleration.x;
+    accel_y = accel.acceleration.y;
+    accel_z = accel.acceleration.z;
+
+    gyro_x = gyro.gyro.x;
+    gyro_y = gyro.gyro.y;   
+    gyro_z = gyro.gyro.z;
+    
+    Serial.print("Accel X: ");
+    Serial.print(accel_x);
+    Serial.print("  Y: ");
+    Serial.print(accel_y);
+    Serial.print("  Z: ");
+    Serial.print(accel_z);
+    Serial.print("  Gyro X: ");
+    Serial.print(gyro_x);
+    Serial.print("  Y: ");
+    Serial.print(gyro_y);
+    Serial.print("  Z: ");
+    Serial.println(gyro_z);
+    delay(100);
+
+}
 
 
 

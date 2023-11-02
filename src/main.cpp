@@ -31,6 +31,10 @@ Remark:
 
 #include "MPU6050_mod.h"
 
+// #include "mpu6050_test.h"
+
+
+
 
 
 
@@ -62,6 +66,10 @@ void setup() {
   mpu6050.initialize();
 
 }
+
+
+
+
 
 void loop() {
 

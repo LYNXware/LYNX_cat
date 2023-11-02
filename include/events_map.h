@@ -61,10 +61,16 @@
 #define EVENT_WF 41 // forward
 #define EVENT_WM 42 // scroll wheel button
 #define EVENT_WB 43 // backward
+// -----scroll wheel speed factor
 
-// mouse speed
+// mouse 
+//----- mouse on/off
 #define EVENT_MH 44 // horizontal
 #define EVENT_MV 45 // vertical
 
+
+// GA-module (gyroscope accelerometer module)
+#define EVENT_GA_NF 50 // on/off
+#define EVENT_GA_KT 51 // Key Trigger
 
 #endif
